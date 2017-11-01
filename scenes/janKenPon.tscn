@@ -33,7 +33,7 @@ hframes = 3
 
 [node name="MonkeyPlayer" type="Sprite" parent="."]
 
-transform/pos = Vector2( 544.15, 530.584 )
+transform/pos = Vector2( 548.672, 532.091 )
 transform/scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )
 hframes = 3
