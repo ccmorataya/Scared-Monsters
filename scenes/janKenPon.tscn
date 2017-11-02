@@ -1,15 +1,51 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=9 format=1]
 
-[ext_resource path="res://tileSets/wall.tres" type="TileSet" id=1]
-[ext_resource path="res://sprites/jkpTile.png" type="Texture" id=2]
+[ext_resource path="res://scenes/janKenPon.gd" type="Script" id=1]
+[ext_resource path="res://tileSets/wall.tres" type="TileSet" id=2]
+[ext_resource path="res://sprites/jkpTile.png" type="Texture" id=3]
+[ext_resource path="res://sprites/ButtonTile.png" type="Texture" id=4]
+
+[sub_resource type="CanvasItemShader" id=1]
+
+_code = {
+"fragment": "COLOR = color(1,1,1,0.5); ",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
+shader/shader = SubResource( 1 )
+shader/shading_mode = 0
+
+[sub_resource type="CanvasItemShader" id=3]
+
+_code = {
+"fragment": "// COLOR = color(1,1,1,0.5);",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="CanvasItemMaterial" id=4]
+
+shader/shader = SubResource( 3 )
+shader/shading_mode = 0
 
 [node name="janKenPon" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="."]
+script/script = ExtResource( 1 )
+
+[node name="tlmWall" type="TileMap" parent="."]
 
 transform/scale = Vector2( 6, 6 )
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 64
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -24,18 +60,159 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 65536, 0, 65537, 0, 65538, 0, 65539, 0, 65540, 0, 65541, 0, 65542, 0, 65543, 0, 65544, 0, 65545, 0, 65546, 0, 131072, 0, 131073, 0, 131074, 0, 131075, 0, 131076, 0, 131077, 0, 131078, 0, 131079, 0, 131080, 0, 131081, 0, 131082, 0, 196608, 0, 196609, 0, 196610, 0, 196611, 0, 196612, 0, 196613, 0, 196614, 0, 196615, 0, 196616, 0, 196617, 0, 196618, 0, 262144, 0, 262145, 0, 262146, 0, 262147, 0, 262148, 0, 262149, 0, 262150, 0, 262151, 0, 262152, 0, 262153, 0, 262154, 0, 327680, 0, 327681, 0, 327682, 0, 327683, 0, 327684, 0, 327685, 0, 327686, 0, 327687, 0, 327688, 0, 327689, 0, 327690, 0, 393216, 0, 393217, 0, 393218, 0, 393219, 0, 393220, 0, 393221, 0, 393222, 0, 393223, 0, 393224, 0, 393225, 0, 393226, 0, 458752, 0, 458753, 0, 458754, 0, 458755, 0, 458756, 0, 458757, 0, 458758, 0, 458759, 0, 458760, 0, 458761, 0, 458762, 0 )
 
-[node name="MonsterPlayer" type="Sprite" parent="."]
+[node name="sprMonsterPlayer" type="Sprite" parent="."]
 
-transform/pos = Vector2( 539.628, 192.94 )
+transform/pos = Vector2( 512, 190 )
 transform/scale = Vector2( 4, 4 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 hframes = 3
 
-[node name="MonkeyPlayer" type="Sprite" parent="."]
+[node name="sprMonkeyPlayer" type="Sprite" parent="."]
 
-transform/pos = Vector2( 548.672, 532.091 )
+transform/pos = Vector2( 512, 530 )
 transform/scale = Vector2( 4, 4 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 hframes = 3
+
+[node name="lblMonsterPlayer" type="Label" parent="."]
+
+rect/scale = Vector2( 3, 3 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 374.0
+margin/top = 109.0
+margin/right = 470.0
+margin/bottom = 140.0
+text = "Monster Player"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="lblMonkeyPlayer" type="Label" parent="."]
+
+rect/scale = Vector2( 3, 3 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 374.0
+margin/top = 445.0
+margin/right = 470.0
+margin/bottom = 476.0
+text = "Monkey Player"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="cntButtons" type="Container" parent="."]
+
+visibility/visible = false
+material/material = SubResource( 2 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 418.0
+margin/top = 674.0
+margin/right = 458.0
+margin/bottom = 714.0
+
+[node name="sprRock" type="Sprite" parent="cntButtons"]
+
+material/material = SubResource( 4 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
+hframes = 3
+
+[node name="sprPaper" type="Sprite" parent="cntButtons"]
+
+material/material = SubResource( 4 )
+transform/pos = Vector2( 100, 0 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
+hframes = 3
+frame = 1
+
+[node name="sprScissors" type="Sprite" parent="cntButtons"]
+
+material/material = SubResource( 4 )
+transform/pos = Vector2( 200, 0 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
+hframes = 3
+frame = 2
+
+[node name="hbcJKP" type="HBoxContainer" parent="."]
+
+rect/scale = Vector2( 3, 3 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 168.0
+margin/top = 626.0
+margin/right = 415.0
+margin/bottom = 646.0
+custom_constants/separation = 50
+alignment = 0
+
+[node name="btnRock" type="Button" parent="hbcJKP"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 42.0
+margin/bottom = 20.0
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Rock"
+flat = false
+
+[node name="btnPaper" type="Button" parent="hbcJKP"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 92.0
+margin/top = 0.0
+margin/right = 140.0
+margin/bottom = 20.0
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Paper"
+flat = false
+
+[node name="btnScissors" type="Button" parent="hbcJKP"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 190.0
+margin/top = 0.0
+margin/right = 254.0
+margin/bottom = 20.0
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Scissors"
+flat = false
+
+[connection signal="pressed" from="hbcJKP/btnRock" to="." method="_on_btnRock_pressed"]
+
+[connection signal="pressed" from="hbcJKP/btnPaper" to="." method="_on_btnPaper_pressed"]
+
+[connection signal="pressed" from="hbcJKP/btnScissors" to="." method="_on_btnScissors_pressed"]
 
 
