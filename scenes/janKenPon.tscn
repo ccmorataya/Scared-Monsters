@@ -216,6 +216,23 @@ text = "Scissors"
 icon = ExtResource( 7 )
 flat = false
 
+[node name="resultDialog" type="AcceptDialog" parent="."]
+
+visibility/visible = false
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 400.0
+margin/top = 300.0
+margin/right = 506.0
+margin/bottom = 358.0
+popup/exclusive = false
+window/title = "Result"
+dialog/text = "Combat result"
+dialog/hide_on_ok = true
+
 [connection signal="pressed" from="hbcJKP/btnRock" to="." method="_on_btnRock_pressed"]
 
 [connection signal="pressed" from="hbcJKP/btnPaper" to="." method="_on_btnPaper_pressed"]
