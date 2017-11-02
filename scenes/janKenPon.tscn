@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://scenes/janKenPon.gd" type="Script" id=1]
 [ext_resource path="res://tileSets/wall.tres" type="TileSet" id=2]
 [ext_resource path="res://sprites/jkpTile.png" type="Texture" id=3]
 [ext_resource path="res://sprites/ButtonTile.png" type="Texture" id=4]
+[ext_resource path="res://sprites/rock.png" type="Texture" id=5]
+[ext_resource path="res://sprites/paper.png" type="Texture" id=6]
+[ext_resource path="res://sprites/scissors.png" type="Texture" id=7]
 
 [sub_resource type="CanvasItemShader" id=1]
 
@@ -106,7 +109,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="cntButtons" type="Container" parent="."]
+[node name="cntButtons" type="HBoxContainer" parent="."]
 
 visibility/visible = false
 material/material = SubResource( 2 )
@@ -118,6 +121,7 @@ margin/left = 418.0
 margin/top = 674.0
 margin/right = 458.0
 margin/bottom = 714.0
+alignment = 0
 
 [node name="sprRock" type="Sprite" parent="cntButtons"]
 
@@ -151,10 +155,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 168.0
+margin/left = 65.0
 margin/top = 626.0
-margin/right = 415.0
-margin/bottom = 646.0
+margin/right = 373.0
+margin/bottom = 648.0
 custom_constants/separation = 50
 alignment = 0
 
@@ -166,13 +170,14 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 42.0
-margin/bottom = 20.0
+margin/right = 60.0
+margin/bottom = 22.0
 toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
 text = "Rock"
+icon = ExtResource( 5 )
 flat = false
 
 [node name="btnPaper" type="Button" parent="hbcJKP"]
@@ -181,15 +186,16 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 92.0
+margin/left = 110.0
 margin/top = 0.0
-margin/right = 140.0
-margin/bottom = 20.0
+margin/right = 176.0
+margin/bottom = 22.0
 toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
 text = "Paper"
+icon = ExtResource( 6 )
 flat = false
 
 [node name="btnScissors" type="Button" parent="hbcJKP"]
@@ -198,15 +204,16 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 190.0
+margin/left = 226.0
 margin/top = 0.0
-margin/right = 254.0
-margin/bottom = 20.0
+margin/right = 308.0
+margin/bottom = 22.0
 toggle_mode = false
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
 text = "Scissors"
+icon = ExtResource( 7 )
 flat = false
 
 [connection signal="pressed" from="hbcJKP/btnRock" to="." method="_on_btnRock_pressed"]
