@@ -111,6 +111,7 @@ max_lines_visible = -1
 
 [node name="cntButtons" type="HBoxContainer" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 material/material = SubResource( 2 )
 focus/ignore_mouse = false
@@ -150,6 +151,7 @@ frame = 2
 
 [node name="hbcJKP" type="HBoxContainer" parent="."]
 
+editor/display_folded = true
 rect/scale = Vector2( 3, 3 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
